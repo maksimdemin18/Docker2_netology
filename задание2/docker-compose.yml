@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  app:
+    image: alpine:latest
+    container_name: my_app
+    command: ["sh", "-c", "while true; do echo Hello from app; sleep 60; done"]
+    networks:
+      - DeminMS-my-netology-hw
+    volumes:
+      - app-data:/data
+
+volumes:
+  app-data:
+
+networks:
+  DeminMS-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
