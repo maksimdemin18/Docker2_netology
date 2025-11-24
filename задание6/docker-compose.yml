@@ -36,14 +36,13 @@ services:
       - GF_PATHS_CONFIG=/etc/grafana/custom.ini
     volumes:
       - grafana-data:/var/lib/grafana
-      - grafana-config:/etc/grafana
+      - ./grafana/custom.ini:/etc/grafana/custom.ini:ro
     networks:
       - DeminMS-my-netology-hw
 
 volumes:
   prometheus-data:
   grafana-data:
-  grafana-config:
 
 networks:
   DeminMS-my-netology-hw:
